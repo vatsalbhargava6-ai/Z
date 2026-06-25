@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z - Agro Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="landing-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="landing-app.js"></script>
+    
+</head>
+<body class="cyber-bg min-h-screen flex flex-col justify-between antialiased selection:bg-cyan-500 selection:text-black">
+
+    <div class="max-w-[1600px] mx-auto w-full px-8 pt-5 flex justify-between items-center text-[10px] tracking-[0.3em] text-slate-400 font-mono z-10">
+        <div class="flex items-center gap-2">
+            <span>SYSTEM STATUS</span>
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ONLINE
+            </span>
+        </div>
+        <div class="text-right">
+            <div>UTC 07:42:31</div>
+            <div class="text-slate-500 mt-0.5">18 MAY 2025</div>
+        </div>
+    </div>
+
+    <header class="max-w-[1600px] mx-auto w-full px-6 py-10 text-center relative my-auto z-10">
+        <div class="absolute top-4 left-16 text-cyan-400/20 text-7xl transform -rotate-12 hidden lg:block">
+            <i class="fa-solid fa-satellite shadow-sm"></i>
+        </div>
+
+        <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-[0_0_35px_rgba(6,182,212,0.4)]">
+            <span class="text-4xl font-black tracking-tighter text-black italic font-mono">Z</span>
+        </div>
+
+        <p class="text-[11px] uppercase tracking-[0.45em] text-cyan-400 font-bold mb-3 font-mono">Z &bull; AGRO INTELLIGENCE</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-[0.22em] text-white mb-6 leading-tight">
+            AGRO INTELLIGENCE PLATFORM
+        </h1>
+        
+        <p class="text-[10px] sm:text-[11px] tracking-[0.35em] text-cyan-400/80 uppercase mb-8 font-medium font-sans">
+            SATELLITE &bull; AI &bull; ANALYTICS &bull; ACTIONABLE INSIGHTS
+        </p>
+
+        <p class="text-[11px] tracking-[0.25em] text-slate-400 uppercase font-mono max-w-xl mx-auto leading-relaxed mb-10">
+            REAL-TIME SATELLITE MONITORING<br>
+            AI POWERED FIELD ANALYTICS
+        </p>
+
+        <button id="get-started-btn" class="btn-cyber-glow inline-flex items-center gap-4 bg-transparent px-14 py-3.5 rounded text-xs tracking-[0.3em] font-bold text-white mb-16 uppercase">
+            GET STARTED <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto text-left font-mono">
+            <div class="cyber-card p-5 rounded flex items-center gap-4">
+                <div class="text-cyan-400 text-xl"><i class="fa-solid fa-satellite-dish"></i></div>
+                <div>
+                    <div class="text-[10px] tracking-widest text-slate-400 uppercase">SATELLITE LINK</div>
+                    <div class="text-xs font-bold text-emerald-400 tracking-wider mt-0.5">ACTIVE</div>
+                </div>
+            </div>
+            <div class="cyber-card p-5 rounded flex items-center gap-4">
+                <div class="text-cyan-400 text-xl"><i class="fa-solid fa-circle-notch animate-spin"></i></div>
+                <div>
+                    <div class="text-[10px] tracking-widest text-slate-400 uppercase">DATA STREAM</div>
+                    <div class="text-xs font-bold text-emerald-400 tracking-wider mt-0.5">REAL-TIME</div>
+                </div>
+            </div>
+            <div class="cyber-card p-5 rounded flex items-center gap-4">
+                <div class="text-cyan-400 text-xl"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <div class="text-[10px] tracking-widest text-slate-400 uppercase">AI ENGINE</div>
+                    <div class="text-xs font-bold text-emerald-400 tracking-wider mt-0.5">OPERATIONAL</div>
+                </div>
+            </div>
+            <div class="cyber-card p-5 rounded flex items-center gap-4">
+                <div class="text-cyan-400 text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                    <div class="text-[10px] tracking-widest text-slate-400 uppercase">SYSTEM HEALTH</div>
+                    <div class="text-xs font-bold text-emerald-400 tracking-wider mt-0.5">OPTIMAL</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-[9px] tracking-[0.45em] text-slate-500 uppercase mt-12 font-mono">
+            &bull; TRUSTED BY AGRICULTURE. POWERED BY SPACE. &bull;
+        </p>
+    </header>
+
+    <footer class="border-t border-slate-900 bg-slate-950/90 backdrop-blur-md py-4 font-mono text-[9px] tracking-widest text-slate-400 w-full z-10">
+        <div class="max-w-[1600px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-slate-900/60">
+            <div class="flex items-center justify-center gap-2 px-2">
+                <i class="fa-solid fa-satellite text-cyan-500"></i>
+                <span>SATELLITE STATUS:</span>
+                <span class="text-emerald-400 font-bold">CONNECTED</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-2">
+                <i class="fa-solid fa-cloud text-cyan-500"></i>
+                <span>WEATHER ENGINE:</span>
+                <span class="text-emerald-400 font-bold">ONLINE</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-2">
+                <i class="fa-solid fa-brain text-cyan-500"></i>
+                <span>AI ANALYTICS:</span>
+                <span class="text-emerald-400 font-bold">ACTIVE</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-2">
+                <i class="fa-solid fa-tower-broadcast text-cyan-500"></i>
+                <span>DATA STREAM:</span>
+                <span class="text-emerald-400 font-bold">LIVE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="landing-app.js"></script>
+</body>
+</html>

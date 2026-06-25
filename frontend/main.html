@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Z • Agro Intelligence</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI;
+    background:#050b18;
+    color:#fff;
+    overflow:hidden;
+}
+
+/* TOP BAR */
+#top{
+    display:flex;
+    gap:10px;
+    padding:10px;
+    background:#0b1224;
+    border-bottom:1px solid #1f2a44;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:#111a33;
+    color:white;
+}
+
+button{
+    padding:12px 15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* LAYOUT */
+#container{
+    display:flex;
+    height:92vh;
+}
+
+/* MAP */
+#map{
+    flex:2;
+}
+
+/* RIGHT PANEL */
+#right{
+    flex:1;
+    background:#0b1224;
+    padding:15px;
+    overflow:auto;
+    border-left:1px solid #1f2a44;
+}
+
+/* CARD STYLE */
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h2,h3{
+    margin:0 0 10px 0;
+}
+
+.small{
+    color:#b6c2e2;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* SELECTED LOCATION */
+#selected{
+    font-size:13px;
+    color:#9fb3d1;
+    margin-bottom:10px;
+}
+
+/* WEATHER HIGHLIGHT */
+.temp{
+    font-size:28px;
+    font-weight:bold;
+    color:#00d4ff;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#1b2a4a;
+    font-size:12px;
+    margin-top:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="top">
+    <input id="search" placeholder="Search location...">
+    <button onclick="searchPlace()">Search</button>
+    <button onclick="goBack()">Back</button>
+</div>
+
+<div id="container">
+
+    <div id="map"></div>
+
+    <div id="right">
+
+        <div id="selected" class="card">
+            📍 Select location
+        </div>
+
+        <div id="ai" class="card">
+            🌦 Loading Weather Intelligence...
+        </div>
+
+        <div id="zone" class="card"></div>
+
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

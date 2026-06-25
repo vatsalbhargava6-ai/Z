@@ -1,0 +1,74 @@
+body {
+    background-color: #020612;
+    color: #f8fafc;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    /* Added smooth scrolling for premium feel */
+    scroll-behavior: smooth;
+}
+
+/* Enhanced background with subtle animation */
+.cyber-bg {
+    position: relative;
+    background: radial-gradient(circle at 50% 120%, #082f49 0%, #030712 60%);
+    min-height: 100vh;
+}
+
+.cyber-bg::before {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: -25%;
+    width: 150%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, transparent 40%, rgba(6, 182, 212, 0.15) 65%, #020612 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: inset 0 10px 80px rgba(6, 182, 212, 0.2);
+    /* Animation added for breathing effect */
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Refined Cards with depth and hover effect */
+.cyber-card {
+    background: rgba(4, 10, 26, 0.65);
+    border: 1px solid rgba(13, 35, 77, 0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.05);
+    /* Aesthetic enhancements */
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cyber-card:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+    transform: translateY(-8px);
+}
+
+/* Precision Button with enhanced micro-interaction */
+.btn-cyber-glow {
+    border: 1.5px solid rgba(6, 182, 212, 0.7);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25), inset 0 0 10px rgba(6, 182, 212, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Aesthetic styling */
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    color: #f8fafc;
+    font-weight: 600;
+}
+
+.btn-cyber-glow:hover {
+    background-color: #06b6d4;
+    color: #000000;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
+    transform: scale(1.05);
+}

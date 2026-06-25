@@ -1,0 +1,8 @@
+flask
+flask-cors
+gunicorn
+numpy
+joblib
+python-dotenv
+google-generativeai
+earthengine-api

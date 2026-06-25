@@ -1,0 +1,251 @@
+
+body{
+    margin:0;
+    font-family: "Segoe UI", system-ui;
+    background: radial-gradient(circle at top, #070b16, #02040a 70%);
+    color:#e6e6e6;
+    overflow:hidden;
+}
+
+/* CINEMATIC DARK LAYER */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,245,255,0.08), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(59,130,246,0.08), transparent 40%);
+    pointer-events:none;
+    animation: ambientMove 10s infinite alternate;
+}
+
+@keyframes ambientMove{
+    0%{ transform:scale(1); }
+    100%{ transform:scale(1.05); }
+}
+
+/* TOP BAR (cinematic glass) */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 22px;
+    background:rgba(10,15,25,0.4);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.logo{
+    color:#00f5ff;
+    font-weight:900;
+    letter-spacing:2px;
+    text-shadow:0 0 18px rgba(0,245,255,0.5);
+}
+
+/* MAIN GRID */
+.container{
+    display:grid;
+    grid-template-columns:1fr 1.7fr 1fr;
+    height:calc(100vh - 60px);
+    gap:14px;
+    padding:14px;
+}
+
+/* GLASS PANELS */
+.panel, .right{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:16px;
+    backdrop-filter: blur(20px);
+    box-shadow:0 0 30px rgba(0,0,0,0.6);
+    transition:0.3s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+/* CINEMATIC HOVER LIFT */
+.panel:hover, .right:hover{
+    transform:translateY(-4px);
+    border-color:rgba(0,245,255,0.25);
+    box-shadow:0 0 40px rgba(0,245,255,0.08);
+}
+
+/* INPUT */
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    background:rgba(15,23,42,0.9);
+    border:1px solid #2b3445;
+    color:white;
+    border-radius:10px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#00f5ff;
+    box-shadow:0 0 18px rgba(0,245,255,0.25);
+}
+
+/* BUTTON (energy cinematic) */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    background:linear-gradient(90deg,#00f5ff,#3b82f6);
+    border:none;
+    color:#000;
+    font-weight:900;
+    border-radius:10px;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.04);
+    box-shadow:0 0 25px rgba(0,245,255,0.4);
+}
+
+/* cinematic sweep */
+button::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:120%;
+    height:100%;
+    background:rgba(255,255,255,0.25);
+    transform:skewX(-20deg);
+    transition:0.5s;
+}
+
+button:hover::after{
+    left:120%;
+}
+
+/* MAP CINEMATIC FRAME */
+#map{
+    height:100%;
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.6),
+        inset 0 0 40px rgba(0,245,255,0.05);
+    animation: mapPulse 6s infinite ease-in-out;
+}
+
+@keyframes mapPulse{
+    0%{ box-shadow:0 0 20px rgba(0,0,0,0.6); }
+    50%{ box-shadow:0 0 35px rgba(0,245,255,0.1); }
+    100%{ box-shadow:0 0 20px rgba(0,0,0,0.6); }
+}
+
+/* RIGHT PANEL */
+.right{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+/* AI + ZONE CARDS */
+#ai, #zone{
+    background:rgba(0,0,0,0.25);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:14px;
+    border-radius:14px;
+    line-height:1.6;
+    font-size:14px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* AI SCAN LIGHT (cinematic core effect) */
+#ai::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:120%;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(0,245,255,0.15), transparent);
+    animation: scan 3s infinite;
+}
+
+@keyframes scan{
+    0%{ left:-120%; }
+    100%{ left:120%; }
+}
+
+/* ZONE PULSE */
+#zone{
+    animation: zoneGlow 3s infinite alternate;
+}
+
+@keyframes zoneGlow{
+    0%{
+        box-shadow:0 0 10px rgba(0,245,255,0.05);
+    }
+    100%{
+        box-shadow:0 0 22px rgba(0,245,255,0.15);
+    }
+}
+
+/* HEADINGS */
+h3{
+    margin:6px 0;
+    color:#cfefff;
+    letter-spacing:1px;
+}
+
+/* SCROLL */
+.panel, .right{
+    overflow:auto;
+}
+
+.panel::-webkit-scrollbar,
+.right::-webkit-scrollbar{
+    width:6px;
+}
+
+.panel::-webkit-scrollbar-thumb,
+.right::-webkit-scrollbar-thumb{
+    background:rgba(0,245,255,0.2);
+    border-radius:10px;
+}
+
+/* BOX */
+.box{
+    background:rgba(255,255,255,0.03);
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-3px);
+    border-color:rgba(0,245,255,0.25);
+}
+
+/* subtle breathing UI */
+.panel, .right{
+    animation: floatUI 6s ease-in-out infinite;
+}
+
+@keyframes floatUI{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-2px); }
+    100%{ transform:translateY(0px); }
+}
