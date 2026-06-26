@@ -2,11 +2,20 @@ import ee
 import json
 import os
 
+# load JSON from env
 key = json.loads(os.getenv("EE_SERVICE_ACCOUNT_KEY"))
 
+# write temporary file
+import tempfile
+
+with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
+    json.dump(key, f)
+    key_path = f.name
+
+# correct Earth Engine auth
 credentials = ee.ServiceAccountCredentials(
     key["client_email"],
-    key
+    key_path
 )
 
 ee.Initialize(credentials, project="z-agro-ai")
