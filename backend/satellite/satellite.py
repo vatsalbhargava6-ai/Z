@@ -18,7 +18,7 @@ credentials = ee.ServiceAccountCredentials(
     key_path
 )
 
-ee.Initialize(credentials, project="z-agro-ai")
+ee.Initialize(credentials, project="zcrops-500519")
 
 # ---------------- LOAD ML MODEL ----------------
 MODEL_PATH = "ml_model/crop_model.pkl"
