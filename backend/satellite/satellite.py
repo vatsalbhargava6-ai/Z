@@ -1,21 +1,20 @@
 import ee
 import json
 import os
+import numpy as np
+import joblib
 
-service_account_info = json.loads(os.getenv("EE_SERVICE_ACCOUNT_KEY"))
+# ---------------- EARTH ENGINE AUTH ----------------
+key = json.loads(os.getenv("EE_SERVICE_ACCOUNT_KEY"))
 
 credentials = ee.ServiceAccountCredentials(
-    service_account_info["client_email"],
-    key_data=json.dumps(service_account_info)
+    key["client_email"],
+    key
 )
 
 ee.Initialize(credentials)
 
-# ---------------- INIT EARTH ENGINE ----------------
-# IMPORTANT: replace with your real project id (no spaces)
-ee.Initialize(project="zcrops")
-
-# ---------------- LOAD ML MODEL (SAFE) ----------------
+# ---------------- LOAD ML MODEL ----------------
 MODEL_PATH = "ml_model/crop_model.pkl"
 
 if os.path.exists(MODEL_PATH):
@@ -40,7 +39,7 @@ def get_satellite_analysis(lat, lon):
     )
 
     # ---------------- NDVI ----------------
-    ndvi_img = image.normalizedDifference(["B8", "B4"])
+    ndvi_img = image.normalizedDifference(["B8", "B4"]).rename("ndvi")
 
     ndvi_dict = ndvi_img.reduceRegion(
         reducer=ee.Reducer.mean(),
@@ -48,13 +47,14 @@ def get_satellite_analysis(lat, lon):
         scale=10
     )
 
-    ndvi_value = ndvi_dict.get("nd").getInfo()
+    ndvi_value = ndvi_dict.get("ndvi").getInfo()
+
     if ndvi_value is None:
         ndvi_value = 0
 
     ndvi_value = float(ndvi_value)
 
-    # ---------------- WEATHER (TEMP MOCK FOR NOW) ----------------
+    # ---------------- MOCK WEATHER ----------------
     temp = 28
     humidity = 60
     rainfall = 10
@@ -68,7 +68,7 @@ def get_satellite_analysis(lat, lon):
         prediction = None
         confidence = 0.0
 
-    # ---------------- FALLBACK CLASSIFICATION ----------------
+    # ---------------- LAND TYPE ----------------
     if prediction is None:
         if ndvi_value < 0.05:
             land_type = "Urban 🏙️"
@@ -91,7 +91,6 @@ def get_satellite_analysis(lat, lon):
     else:
         health_status = "Poor"
 
-    # ---------------- RETURN ----------------
     return {
         "ndvi": round(ndvi_value, 3),
         "land_type": land_type,
