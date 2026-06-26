@@ -1,10 +1,7 @@
 import ee
 import json
 import os
-import numpy as np
-import joblib
 
-# ---------------- EARTH ENGINE AUTH ----------------
 key = json.loads(os.getenv("EE_SERVICE_ACCOUNT_KEY"))
 
 credentials = ee.ServiceAccountCredentials(
@@ -12,7 +9,7 @@ credentials = ee.ServiceAccountCredentials(
     key
 )
 
-ee.Initialize(credentials)
+ee.Initialize(credentials, project="z-agro-ai")
 
 # ---------------- LOAD ML MODEL ----------------
 MODEL_PATH = "ml_model/crop_model.pkl"
